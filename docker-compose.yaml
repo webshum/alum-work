@@ -1,0 +1,46 @@
+services:
+    app:
+        container_name: alum-app
+        build:
+            context: .
+            dockerfile: Dockerfile
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+            - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+        depends_on:
+            - db
+        restart: always
+        networks:
+            - app-network
+
+    nginx:
+        container_name: alum-nginx
+        image: nginx:stable-alpine
+        ports:
+            - "8088:80"
+        volumes:
+            - ./:/var/www
+            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+        restart: always
+        networks:
+            - app-network
+
+    db:
+        container_name: alum-db
+        image: pgvector/pgvector:pg17
+        environment:
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: ${DB_DATABASE}
+        volumes:
+            - ./docker/postgres/data:/var/lib/postgresql/data
+        ports:
+            - ${DB_PORT}:5432
+        restart: always
+        networks:
+            - app-network
+
+networks:
+  app-network:
+    driver: bridge
