@@ -61,4 +61,4 @@ jobs:
                   to: "${{ secrets.TELEGRAM_ID }}"
                   token: "${{ secrets.TELEGRAM_TOKEN }}"
                   message: |
-                      Deployment successful https://alum-work.webshum.com.ua on branch ${{ github.ref }}
+                      Deployment successful https://alumwork.webshum.com.ua on branch ${{ github.ref }}
