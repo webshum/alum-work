@@ -1,0 +1,64 @@
+name: Laravel Deployment
+on:
+    push:
+        branches:
+            - develop
+            - main
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v3
+
+            - name: Deploy to development
+              if: github.ref == 'refs/heads/develop'
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: "${{ secrets.DEV_HOST }}"
+                  username: "${{ secrets.DEV_USERNAME }}"
+                  password: "${{ secrets.DEV_PASSWORD }}"
+                  port: "${{ secrets.DEV_PORT }}"
+                  script: |
+                      cd /var/www/alum-work
+                      git fetch origin
+                      git reset --hard origin/develop
+                      git clean -fd
+                      git pull origin develop --force
+                      docker exec alum-app composer install
+                      docker exec alum-app npm install
+                      docker exec alum-app npm run build
+                      # docker exec alum-app php artisan migrate --seed
+                      docker exec alum-app php artisan migrate
+                      docker exec alum-app php artisan route:cache
+                      docker exec alum-app php artisan view:cache
+                      docker exec alum-app php artisan storage:link
+
+
+            - name: Deploy to production
+              if: github.ref == 'refs/heads/main'
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: "${{ secrets.PROD_HOST }}"
+                  username: "${{ secrets.PROD_USERNAME }}"
+                  password: "${{ secrets.PROD_PASSWORD }}"
+                  script: |
+                      cd /home/di569345/architecture-of-technology.com/www/
+                      git fetch origin
+                      git reset --hard origin/main
+                      git clean -fd
+                      git pull origin main --force
+                      composer install
+                      /home/di569345/architecture-of-technology.com/www/web/app/themes/sage
+                      composer install
+
+            - name: Send Telegram message
+              if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+              uses: appleboy/telegram-action@v0.1.0
+              with:
+                  to: "${{ secrets.TELEGRAM_ID }}"
+                  token: "${{ secrets.TELEGRAM_TOKEN }}"
+                  message: |
+                      Deployment successful https://alum-work.webshum.com.ua on branch ${{ github.ref }}
