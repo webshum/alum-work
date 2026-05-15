@@ -27,7 +27,7 @@ jobs:
                       git reset --hard origin/develop
                       git clean -fd
                       git pull origin develop --force
-                      docker exec alum-app composer install
+                      docker exec alum-app composer install --no-dev --optimize-autoloader --no-interaction
                       docker exec alum-app npm install
                       docker exec alum-app npm run build
                       # docker exec alum-app php artisan migrate --seed
