@@ -1,3 +1,19 @@
-.header {
+.header .center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 80px;
+    background: #fff;
+}
 
+.header__nav {
+    display: flex;
+    gap: 36px;
+}
+
+.header__nav a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
 }
