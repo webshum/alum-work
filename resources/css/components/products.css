@@ -1,0 +1,30 @@
+
+.card {
+    display: block;
+    background-color: #F2F6F2;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 587 / 390;
+    object-fit: cover;
+}
+
+.card h3 {
+    text-align: center;
+    padding: 8px 0;
+    font-size: clamp(15px, 2.6vw, 32px);
+    color: #111111;
+    font-family: 'Roboto Flex', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.products .wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(16px, 2vw, 32px) clamp(10px, 2vw, 25px);
+    padding: 30px 40px;
+}
+

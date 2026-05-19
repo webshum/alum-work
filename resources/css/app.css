@@ -4,6 +4,9 @@
 @import './layouts/footer.css';
 @import './layouts/header.css';
 
+@import './components/banner-slider.css';
+@import './components/products.css';
+@import './components/service.css';
 @import './page/home.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -24,6 +27,7 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
     box-sizing: border-box;
+    line-height: 1.25;
     background: #fff;
 }
 
@@ -51,7 +55,24 @@ img {
 }
 
 .center {
-    max-width: 1280px;
+    max-width: 1320px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+
+.intro .wrap {
+   padding: clamp(15px, 3vw, 30px) clamp(20px, 3vw, 40px);
+    
+}
+
+.intro p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #42403F;
+    font-size: clamp(15px, 2.5vw, 20px); 
+}
+
+.intro p + p {
+    margin-top: 2.2em; 
 }

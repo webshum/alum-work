@@ -1,21 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Front Page dfsdfds</h1>
 
-    <div class="flex items-center jusityf-between">
-        <div>
-            LEFT
-        </div>
+@include('public.banner')
 
-        <div>
-            RIGHT
-        </div>
+<section class="intro center">
+    <div class="wrap">
+        <p>
+            Wir legen großen Wert auf Qualität und Zufriedenheit in der Erfüllung der Wünsche unserer Kunden. Deshalb steht auch die fachgerechte, kompetente Beratung der Kunden yan erster Stelle. Ihren Wünschen
+            entsprechend, planen wir Ihre Terrassenüberdachung, Carport oder Sommergarten unter Verwendung moderner Technik und ausgezeichneter Qualität.
+        </p>
+
+        <p>
+            Kunden und Interessenten haben die Möglichkeit sich direkt bei Ihnen zuhause oder Geschäftsstelle beraten zu werden. Vereinbaren Sie gleich ein Beratungstermin und profitieren von den aktuellen Rabatten und Angeboten. Wir beraten Sie gerne!
+        </p>
     </div>
+</section>
 
-    <swiper-container>
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-    </swiper-container>
+@include('public.products')
+  
+@include('public.service')
+    
 @endsection
