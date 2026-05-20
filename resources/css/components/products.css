@@ -25,6 +25,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(16px, 2vw, 32px) clamp(10px, 2vw, 25px);
-    padding: 30px 40px;
+    padding: 30px 0;
 }
 

@@ -1,4 +1,4 @@
-.baner-slider swiper-slide {
+.main-slider swiper-slide {
     position: relative;
     width: 100%;
     aspect-ratio: 1280 / 440; 
@@ -6,20 +6,22 @@
     overflow: hidden;
 }
 
-.baner-slider swiper-slide img {
+.main-slider swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.baner-slider .wrap {
+.main-slider .center {
+    position: relative;
+}
+.main-slider .wrap {
     position: absolute;
-    top: clamp(20px, 10%, 50px); 
-    right: clamp(20px, 6%, 120px);
+    top: 0;
     color: #fff;
     text-align: right;
     max-width: 60%;
 }
-.baner-slider h1 {
+.main-slider h1 {
     color: #fff;
     font-size: 64px;
     font-family: "Akatab", sans-serif;
@@ -27,16 +29,15 @@
     font-size: clamp(32px, 5vw, 64px);
 }
 
-.baner-slider h1 span {color: #29aae1;}
+.main-slider h1 span {color: #29aae1;}
 
-.baner-slider .wrap p {
-    font-family: 'Inter', sans-serif;
+.main-slider .wrap p {
     font-size: clamp(16px, 2.5vw, 30px);
     font-weight: 700;
     color: #fff;
     text-align: right;
 }
-.baner-slider .wrap p:first-of-type {margin-top: 1.2em;}
+.main-slider .wrap p:first-of-type {margin-top: 1.2em;}
 
 
 
