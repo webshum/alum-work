@@ -1,0 +1,30 @@
+.promo {
+    padding: 40px 0;
+}
+
+.promo .title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.promo .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.promo .item {
+    display: block;
+    flex: 1 1 calc(33.333% - 14px);
+    min-width: 280px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.promo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
