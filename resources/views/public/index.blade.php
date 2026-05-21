@@ -18,8 +18,10 @@
 </section>
 
 @include('components.products')
-
 @include('public.service')
+@include('components.promo')
+@include('components.faq')
+@include('components.referenc-slider') 
 
                                                                                                                                            
                                                                                                                                                                     

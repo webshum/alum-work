@@ -8,6 +8,8 @@
 @import './components/products.css';
 @import './components/service.css';
 @import './components/promo.css';
+@import './components/faq.css';
+@import './components/referenc-slider.css';
 @import './page/home.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
