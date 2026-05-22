@@ -1,25 +1,83 @@
 .header {
-    background-color: #F2F6F2;
-    padding: 25px 0;
+  background-color: #F2F6F2;
+  padding: 25px 0;
 }
+
 .header .center {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
 .header-logo {
-    width: 100%;
-    max-width: clamp(220px, 20vw, 300px);
-    height: auto;
-    display: block;
+  width: 100%;
+  max-width: clamp(220px, 20vw, 300px);
+  height: auto;
+  display: block;
 }
-.header-nav {
-    display: flex;
-    gap: clamp(12px, 2.5vw, 36px);
+
+.header-nav .nav-list {
+  display: flex;
+  gap: clamp(12px, 2.5vw, 36px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.header-nav a {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    color: #333;
-    font-size: clamp(16px, 1.5vw, 20px);
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #333;
+  font-size: clamp(16px, 1.5vw, 20px);
+  text-decoration: none;
+  padding: 10px 0;
+  display: block;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #000;
+}
+
+/* Дропдаун */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #E8E8E8; /* сірий фон як на макеті */
+  min-width: 240px;
+  padding: 16px 20px;
+  list-style: none;
+  margin: 12px 0 0 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+  z-index: 100;
+}
+
+.has-dropdown:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown li a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  padding: 8px 0;
+  display: block;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.dropdown li a:hover {
+  color: #000;
+  text-decoration: underline;
 }
