@@ -7,7 +7,7 @@ register();
 // createApp(Home).mount('#app');
 
 
-/*  ACORDEON 
+/*  ACORDEON
 ------------------------------------------------- */
 function acordeon(setting) {
     let acordeon = document.querySelectorAll(setting.clasName);
@@ -38,7 +38,9 @@ function acordeon(setting) {
     }
 }
 
-let acordeon1 = new acordeon({
-    clasName: '.acordeon',
-    showOne: true,
-});
+if (document.querySelector('.acordeon') != null) {
+    let acordeon1 = new acordeon({
+        clasName: '.acordeon',
+        showOne: true,
+    });
+}

@@ -5,7 +5,7 @@
 
     .wrap {
 		display: grid;
-		grid-template-columns: minmax(0, 268px) minmax(0, 268px) minmax(0, 268px) minmax(0, 194px);
+		grid-template-columns: 1fr 1fr 1fr minmax(0, 194px);
 		gap: 42px;
 		margin-bottom: 50px;
 		justify-content: space-between;
