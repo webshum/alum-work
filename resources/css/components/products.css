@@ -11,11 +11,16 @@
 .product-card {
     display: block;
     background-color: #F2F6F2;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-decoration: none;
 
     img {
         width: 100%;
         aspect-ratio: 587 / 390;
         object-fit: cover;
+        transition: transform 0.4s ease;
+        display: block;
     }
 
     h2 {
@@ -25,7 +30,17 @@
         color: #111111;
         font-family: 'Roboto Flex', sans-serif;
         font-weight: 600;
-        text-align: center;
         text-transform: capitalize;
+        transition: color 0.3s ease;
+        margin: 0;
+    }
+
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+
+        h2 {
+            color: #0F3D2E;
+        }
     }
 }

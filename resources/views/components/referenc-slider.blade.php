@@ -19,7 +19,10 @@
                 </button>
             </div>
 
-            <a href="#" class="referenc-all">Alle Projekte Ansehen →</a>
+            <a href="#" class="referenc-all">
+                Alle Projekte Ansehen
+                <img src="{{ asset('images/ic-arrow.svg') }}" alt=""> 
+            </a>
         </div>
 
         <swiper-container 
@@ -31,47 +34,47 @@
             navigation-prev-el=".referenc-slider .slider-prev">
             
             <swiper-slide>
-                <div class="referenc-card">
+                <a href="#" class="referenc-card">
                     <img src="{{ asset('images/referenc-1.png') }}" alt="">
                     <div class="referenc-info">
                         <span class="referenc-location">Ulm, Baden-Württemberg, 2025</span>
                         <h3>Moderne Glas-Oase in Hanglage</h3>
                         <p>Sonderanfertigung mit integrierter LED-Beleuchtung und seitlichen Glaselementen.</p>
                     </div>
-                </div>
+                </a>
             </swiper-slide>
 
             <swiper-slide>
-                <div class="referenc-card">
+                <a href="#" class="referenc-card">
                     <img src="{{ asset('images/referenc-2.png') }}" alt="">
                     <div class="referenc-info">
                         <span class="referenc-location">Wertheim, Baden-Württemberg, 2026</span>
                         <h3>Carport & Terrasse</h3>
                         <p>Einheitliches Design für das gesamte Grundstück in Anthrazit-Optik.</p>
                     </div>
-                </div>
+                </a>
             </swiper-slide>
 
             <swiper-slide>
-                <div class="referenc-card">
+                <a href="#" class="referenc-card">
                     <img src="{{ asset('images/referenc-3.png') }}" alt="">
                     <div class="referenc-info">
                         <span class="referenc-location">Nürnberg, Bayern, 2025</span>
                         <h3>Premium Lamellendach</h3>
                         <p>Variable Lichtsteuerung durch automatisierte Lamellen für Komfort.</p>
                     </div>
-                </div>
+                </a>
             </swiper-slide>
 
             <swiper-slide>
-                <div class="referenc-card">
+                <a href="#" class="referenc-card">
                     <img src="{{ asset('images/referenc-3.png') }}" alt="">
                     <div class="referenc-info">
                         <span class="referenc-location">Nürnberg, Bayern, 2025</span>
                         <h3>Premium Lamellendach</h3>
                         <p>Variable Lichtsteuerung durch automatisierte Lamellen für Komfort.</p>
                     </div>
-                </div>
+                </a>
             </swiper-slide>
 
         </swiper-container>

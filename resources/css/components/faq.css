@@ -117,7 +117,7 @@
 
 .main-acordeon .acordeon-btn {
     background-color: #0E2A24;
-    padding: 15px 10px;
+    padding: 15px;
     font-weight: 600;
     font-size: 18px;
     color: #fff;
@@ -126,6 +126,7 @@
     justify-content: space-between;
     align-items: center;
     transition: background 0.2s;
+    border-radius: 5px;
 }
 
 .main-acordeon .acordeon-btn:hover {
