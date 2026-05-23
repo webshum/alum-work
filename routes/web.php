@@ -6,6 +6,10 @@ Route::get('/', function () {
     return view('public.index');
 });
 
-Route::get('/gallery', function () {
-    return view('public.gallery');
-});
+Route::get('/pergolas', function () {
+    return view('public.pergolas');
+})->name('pergolas');
+
+Route::get('/product', function () {
+    return view('public.product');
+})->name('product');

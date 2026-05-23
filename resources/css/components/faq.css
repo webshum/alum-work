@@ -128,6 +128,9 @@
     transition: background 0.2s;
     border-radius: 5px;
 }
+.main-acordeon .acordeon-btn.active {
+    border-color: #fff;
+}
 
 .main-acordeon .acordeon-btn:hover {
     background-color: #143A30;
@@ -158,18 +161,18 @@
 }
 
 .main-acordeon .acordeon-content .inner {
-    background: #fff;
-    border: 1px solid #C4C6CD;
-    border-top: none;
+    background-color: #0E2A24;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 0;
-    padding: 24px 32px;
+    padding: 10px 0;
     color: #4D4D4D;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
 }
 
 .main-acordeon .acordeon-content .inner p {
     margin: 0 0 16px 0;
+    color: #fff;
 }
 
 .main-acordeon .acordeon-content .inner p:last-child {

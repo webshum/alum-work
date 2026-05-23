@@ -12,6 +12,7 @@
     .center {
         position: relative;
         z-index: 2;
+        width: 100%;
     }
 
     img {
@@ -22,16 +23,21 @@
         inset: 0;
     }
 
-    h1 {
+    h1, h2 {
         font-weight: 900;
         font-size: clamp(32px, 5vw, 64px);
         font-family: "Akatab", sans-serif;
         span {color: #29aae1;}
     }
 
+    h2 {
+        font-size: 40px;
+    }
+
     p {
         font-size: clamp(16px, 2.5vw, 30px);
         font-weight: 700;
+        line-height: 125%;
     }
     p:first-of-type {margin-top: 1.2em;}
 }

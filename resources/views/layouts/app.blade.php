@@ -17,7 +17,8 @@
             @vite(['resources/css/app.css', 'resources/js/app.js'])
         @endif
     </head>
-    <body>
+
+    <body class="@yield('body-class')">
         <div class="wrapper overflow-x-hidden">
             @include('layouts.header')
 
