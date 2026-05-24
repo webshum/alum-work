@@ -5,7 +5,7 @@
 @import './layouts/header.css';
 
 @import './components/main-slider.css';
-@import './components/products.css';
+@import './components/category.css';
 @import './components/service.css';
 @import './components/promo.css';
 @import './components/faq.css';
@@ -64,3 +64,23 @@ img {
     overflow: hidden;
 }
 
+.intro {
+   padding: 30px 0;
+
+   h2 {
+    font-size: 32px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px;
+   }
+
+   p {
+       font-weight: 400;
+       color: #42403F;
+       font-size: clamp(15px, 2.5vw, 20px);
+   }
+
+   p + p {
+       margin-top: 2.2em;
+   }
+}

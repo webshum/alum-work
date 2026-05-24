@@ -44,3 +44,20 @@ if (document.querySelector('.acordeon') != null) {
         showOne: true,
     });
 }
+
+// Swiper для сторінки товару
+const mainSwiperEl = document.querySelector('.main-img');
+const thumbSwiperEl = document.querySelector('.thumbs');
+
+if (mainSwiperEl && thumbSwiperEl) {
+    const swiperParams = {
+        thumbs: {
+            swiper: thumbSwiperEl,
+        },
+    };
+
+    Object.assign(mainSwiperEl, swiperParams);
+
+    mainSwiperEl.initialize();
+    thumbSwiperEl.initialize();
+}
