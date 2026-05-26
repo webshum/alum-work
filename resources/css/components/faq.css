@@ -1,121 +1,115 @@
 .faq-guide {
-    padding: 30px 0;
-    background-color: #F2F6F2;
-}
+  padding: 30px 0;
+  background-color: #F2F6F2;
 
-.faq-guide .center {
+  .center {
     display: flex;
     gap: 25px;
+  }
 }
 
-/* Лівий блок FAQ */
 .faq {
-    width: 100%;
-    max-width: 676px;
-    flex-shrink: 1; 
-    background: #0E2A24;
-    padding: 48px;
-    color: #fff;
+  width: 100%;
+  max-width: clamp(500px, 52vw, 676px);
+  flex-shrink: 0;
+  background: #0E2A24;
+  padding: 48px;
+  color: #fff;
 }
 
 .faq-title {
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 17px;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 600;
+  margin-bottom: 17px;
 }
 
 .faq-button {
-    background: #E75B10;
-    color: #fff;
-    border: none;
-    padding: 14px 33px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 32px;
-}
-.faq-button:hover {
+  background: #E75B10;
+  color: #fff;
+  border: none;
+  padding: 14px 33px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 32px;
+  transition: all 0.2s ease;
+
+  &:hover {
     background-color: #CC4F0E;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(231, 91, 16, 0.3);
+  }
 }
 
-.faq-button {
-    transition: all 0.2s ease;
-}
-
-/* Правий блок Guide */
 .guide {
-    flex: 1;
-    background: #fff;
-    padding: 48px;
-    border: 1px solid #C4C6CD;
+  flex: 1;
+  background: #fff;
+  padding: 48px;
+  border: 1px solid #C4C6CD;
 }
 
 .guide-label {
-    color: #EA580C;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
+  color: #EA580C;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
 }
 
 .guide-title {
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 1.2;
-    margin: 0 0 24px 0;
-    color: #041627;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 24px 0;
+  color: #041627;
 }
 
 .guide-text {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #44474C;
-    margin: 0 0 32px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #44474C;
+  margin: 0 0 32px 0;
 }
 
 .guide-quote {
-    background: #EFEDEF;
-    border-left: 4px solid #EA580C;
-    padding: 25px;
-    color: #041627;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 24px;
+  background: #EFEDEF;
+  border-left: 4px solid #EA580C;
+  padding: 25px;
+  color: #041627;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .guide-link {
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 30px;
-    color: #041627;
-    font-family: "Roboto";
-    font-style: normal;
-    font-size: 20px;
-    font-weight: 400;
-}
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  color: #041627;
+  font-family: "Roboto";
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 400;
 
-.guide-link:hover {
+  &:hover {
     text-decoration: underline;
+  }
 }
 
-
-/*  MAIN-ACORDEON
-------------------------------------------------- */
-.main-acordeon .acordeon-wrap {
+.main-acordeon {
+  .acordeon-wrap {
     margin-bottom: 12px;
-}
 
-.main-acordeon .acordeon-wrap + .acordeon-wrap {
-    margin-top: 12px;
-}
+    + .acordeon-wrap {
+      margin-top: 12px;
+    }
+  }
 
-.main-acordeon .acordeon-btn {
+  .acordeon-btn {
     background-color: #0E2A24;
     padding: 15px;
     font-weight: 600;
@@ -127,54 +121,190 @@
     align-items: center;
     transition: background 0.2s;
     border-radius: 5px;
-}
-.main-acordeon .acordeon-btn.active {
-    border-color: #fff;
-}
 
-.main-acordeon .acordeon-btn:hover {
-    background-color: #143A30;
-}
+    &.active {
+      border-color: #fff;
+    }
 
-.main-acordeon .acordeon-btn span {
-    pointer-events: none;
-}
+    &:hover {
+      background-color: #143A30;
+    }
 
-.main-acordeon .acordeon-btn:after {
-    content: '+';
-    font-size: 35px;
-    font-weight: 300;
-    color: #fff;
-    line-height: 1;
-    margin-left: 20px;
-    transition: transform 0.2s;
-}
+    span {
+      pointer-events: none;
+    }
 
-.main-acordeon .acordeon-btn.active:after {
-    content: '−';
-}
+    &:after {
+      content: '+';
+      font-size: 35px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1;
+      margin-left: 20px;
+      transition: transform 0.2s;
+    }
 
-.main-acordeon .acordeon-content {
+    &.active:after {
+      content: '−';
+    }
+  }
+
+  .acordeon-content {
     overflow: hidden;
     height: 0;
     transition: height 0.3s ease;
+
+    .inner {
+      background-color: #0E2A24;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 0;
+      padding: 10px 0;
+      color: #4D4D4D;
+      font-size: 15px;
+      line-height: 1.6;
+
+      p {
+        margin: 0 0 16px 0;
+        color: #fff;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
 
-.main-acordeon .acordeon-content .inner {
-    background-color: #0E2A24;
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 0;
-    padding: 10px 0;
-    color: #4D4D4D;
+@media (max-width: 1024px) {
+  .faq-guide {
+    .center {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  .faq {
+    max-width: 100%;
+    padding: 40px;
+  }
+
+  .guide {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-guide {
+    padding: 25px 0;
+  }
+
+  .faq,
+  .guide {
+    padding: 32px 24px;
+  }
+
+  .faq-title,
+  .guide-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .guide-text {
+    margin-bottom: 24px;
+  }
+
+  .guide-quote {
+    padding: 20px;
+  }
+
+  .guide-link {
+    font-size: 18px;
+    margin-top: 24px;
+  }
+
+  .main-acordeon {
+    .acordeon-btn {
+      font-size: 16px;
+      padding: 14px;
+
+      &:after {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .faq-guide {
+    padding: 20px 0;
+
+    .center {
+      gap: 20px;
+    }
+  }
+
+  .faq,
+  .guide {
+    padding: 24px 20px;
+  }
+
+  .faq-title,
+  .guide-title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .faq-button {
+    width: 100%;
+    padding: 14px 20px;
+    margin-top: 24px;
+  }
+
+  .guide-label {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .guide-text {
     font-size: 15px;
-    line-height: 1.6;
+  }
+
+  .guide-quote {
+    padding: 16px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .guide-link {
+    font-size: 16px;
+  }
+
+  .main-acordeon {
+    .acordeon-btn {
+      font-size: 15px;
+    }
+  }
 }
 
-.main-acordeon .acordeon-content .inner p {
-    margin: 0 0 16px 0;
-    color: #fff;
-}
+@media (max-width: 390px) {
+  .faq,
+  .guide {
+    padding: 20px 16px;
+  }
 
-.main-acordeon .acordeon-content .inner p:last-child {
-    margin-bottom: 0;
+  .faq-title,
+  .guide-title {
+    font-size: 22px;
+  }
+
+  .main-acordeon {
+    .acordeon-btn {
+      padding: 12px;
+
+      &:after {
+        font-size: 24px;
+        margin-left: 12px;
+      }
+    }
+  }
 }

@@ -2,86 +2,187 @@
   background: #F4F7F8;
   padding: 80px 0;
 
+  h2 {
+    text-align: center;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 0 0 56px;
+    color: #1A1A1A;
+  }
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 37px;
+}
+
+.advantage {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.25);
+  text-align: left;
+
+  .head {
+    display: flex;
+    align-items: baseline;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+
+  .num {
+    color: #4DB4E8;
+    font-weight: 700;
+    font-size: clamp(24px, 2.5vw, 30px);
+    line-height: 1.25;
+    flex-shrink: 0;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-weight: 700;
+    color: #000;
+  }
+
+  p {
+    font-size: clamp(16px, 1.5vw, 20px);
+    line-height: 1.5;
+    color: #000;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .advantages {
+    padding: 60px 0;
+
     h2 {
-        text-align: center;
-        font-size: 36px;
-        font-weight: 700;
-        line-height: 1.25;
-        margin: 0 0 56px;
-        color: #1A1A1A;
+      margin-bottom: 40px;
+    }
+  }
+
+  .advantages-grid {
+    gap: 24px 20px;
+  }
+
+  .advantage {
+    padding: 28px 20px;
+
+    .head {
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages {
+    padding: 48px 0;
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .advantages-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .advantage {
+    padding: 24px 20px;
+
+    .head {
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    .advantages-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px 37px;
+    .num {
+      font-size: 24px;
     }
 
-    .advantage {
-        background: #fff;
-        padding: 30px 20px;
-        border-radius: 12px;
-        box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.25);
-        text-align: left;
-
-        .head {
-        display: flex;
-        align-items: baseline;
-        gap: 40px;
-        margin-bottom: 30px;
-        }
-
-        .num {
-        color: #4DB4E8;
-        font-weight: 700;
-        font-size: 30px;
-        line-height: 1.25;
-        flex-shrink: 0;
-        }
-
-        h3 {
-        margin: 0;
-        font-size: 30px;
-        font-weight: 700;
-        color: #000;
-        }
-
-        p {
-        font-size: 20px;
-        line-height: 1.5;
-        color: #000;
-        text-align: center;
-        }
+    h3 {
+      font-size: 20px;
     }
 
-    @media (max-width: 1024px) {
-        .advantages-grid {
-        gap: 20px;
-        }
-        .advantage {
-        padding: 28px;
-        }
+    p {
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .advantages {
+    padding: 40px 0;
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 28px;
+    }
+  }
+
+  .advantages-grid {
+    gap: 16px;
+  }
+
+  .advantage {
+    padding: 20px 16px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.15);
+
+    .head {
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
-    @media (max-width: 768px) {
-        padding: 48px 0;
-
-        .advantages-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        }
-
-        h2 {
-        font-size: 28px;
-        margin-bottom: 32px;
-        }
-
-        .advantage {
-        padding: 24px;
-
-        h3 {
-            font-size: 18px;
-        }
-        }
+    .num {
+      font-size: 22px;
     }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .advantages {
+    padding: 32px 0;
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 24px;
+    }
+  }
+
+  .advantage {
+    padding: 18px 14px;
+
+    .head {
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .num {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 17px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
 }

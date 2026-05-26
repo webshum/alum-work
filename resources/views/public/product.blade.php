@@ -36,10 +36,10 @@
         </div>
     </section>
 
-<section class="product-page">
+<section class="product">
     <div class="center">
         <div class="product-title">
-            <h2 class="title">
+            <h2>
                 <span class="brand">Alum</span> Standard
             </h2>
             <p class="subtitle">
@@ -47,7 +47,7 @@
             </p>
         </div>
 
-        <div class="content">
+        <div class="wrap">
             <div class="gallery">
                 <swiper-container class="main-img" init="false" space-between="10">
                     <swiper-slide><img src="{{ asset('images/product-1.jpg') }}" alt=""></swiper-slide>
@@ -65,7 +65,6 @@
             </div>
 
             <div class="info">
-                
                 <div class="rating"></div>
 
                 <ul class="usp">
@@ -74,11 +73,24 @@
                 </ul>
 
                 <div class="price-box">
-                    <div class="discount">25% Rabatt</div>
-                    <div class="saving">Sie sparen: 347,00 €</div>
-                    <div class="old-price">1.694,00 €</div>
-                    <div class="current-price">
-                        <span>Preis:</span>
+                    <div class="row">
+                        <div class="inner">
+                            <div class="discount">25% Rabatt</div>
+                        </div>
+                        <div class="old-price">1.694,00 €</div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="inner">
+                            <div class="sie">Sie sparen:</div>
+                        </div>
+                        <div class="saving">347,00 €</div>
+                    </div>
+
+                    <div class="row current-price">
+                        <div class="inner">
+                            <span>Preis :</span>
+                        </div>
                         <strong>1.347,00 €</strong>
                         <small>inkl. MwSt.</small>
                     </div>
@@ -107,8 +119,8 @@
 </section>
 
 <section class="service">
-    <div class="center">
-            <div class="service-content">
+        <div class="center">
+            <div class="wrap">
                 <div class="service-item">
                     <h3>Kundendienst</h3>
                     <p>Unser Kundendienst ist 365 Tage im Jahr erreichbar</p>
@@ -123,11 +135,11 @@
                     <h3>Service & unsere Produkte</h3>
                 </div>
             </div>
-
+            
             <div class="service-manager">
                 <img src="{{ asset('images/service-1.png') }}" alt="Manager">
             </div>
-    </div>
+        </div>
 </section>
 
 @endsection

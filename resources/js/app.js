@@ -61,3 +61,41 @@ if (mainSwiperEl && thumbSwiperEl) {
     mainSwiperEl.initialize();
     thumbSwiperEl.initialize();
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.header');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const body = document.body;
+  
+  // Відкриття/закриття головного меню
+  menuToggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('menu-open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    body.classList.toggle('no-scroll', isOpen);
+  });
+
+  // Акордеон для підменю на мобілці
+  const dropdownItems = document.querySelectorAll('.has-dropdown > .nav-link');
+  dropdownItems.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 1024) {
+        e.preventDefault();
+        const parent = link.parentElement;
+        parent.classList.toggle('active');
+      }
+    });
+  });
+
+  // Закриття по кліку на пункт меню
+  const navLinks = document.querySelectorAll('.header-nav a:not(.has-dropdown > .nav-link)');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        header.classList.remove('menu-open');
+        body.classList.remove('no-scroll');
+        menuToggle.setAttribute('aria-expanded', false);
+      }
+    });
+  });
+});

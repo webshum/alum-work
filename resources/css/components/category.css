@@ -6,6 +6,13 @@
         grid-template-columns: repeat(2, 1fr);
         gap: clamp(16px, 2vw, 32px) clamp(10px, 2vw, 25px);
     }
+
+    @media (max-width: 576px) {
+        .center {
+            gap: 12px;
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 .category-card {
