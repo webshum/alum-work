@@ -1,0 +1,53 @@
+.card {
+    display: block;
+    background-color: #F2F6F2;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-decoration: none;
+
+    .image {
+        overflow: hidden;
+        position: relative;
+        img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 587 / 390;
+            object-fit: cover;
+            transition: all 0.5s;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, transparent 50%, rgba(0,0,0,.5) 100%);
+            transition: all 0.5s;
+            transform: scale(1.5);
+            opacity: 0;
+        }
+    }
+
+    h2 {
+        text-align: center;
+        padding: 8px 0;
+        font-size: clamp(22px, 2.6vw, 32px);
+        text-transform: capitalize;
+        transition: all 0.3s;
+
+        @media (max-width: 767px) {
+            padding: 13px 0;
+        }
+    }
+
+    &:hover {
+        .image {
+            img {transform: scale(1.02);}
+            &:after {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        h2 {color: var(--akcent);}
+    }
+}

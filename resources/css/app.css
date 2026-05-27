@@ -5,13 +5,15 @@
 @import './layouts/header.css';
 
 @import './components/main-slider.css';
-@import './components/category.css';
+@import './components/product/card.css';
+
 @import './components/service.css';
 @import './components/promo.css';
 @import './components/faq.css';
 @import './components/referenc-slider.css';
 @import './components/advantages.css';
 @import './components/page-product.css';
+
 @import './page/home.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -59,7 +61,8 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--title);
-    font-weight: bold;
+    font-family: var(--roboto);
+    font-weight: 600;
 }
 
 p + p {margin-top: 40px;}

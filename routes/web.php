@@ -6,9 +6,9 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/pergolas', function () {
-    return view('public.pergolas');
+    return view('page.pergolas');
 })->name('pergolas');
 
 Route::get('/product', function () {
-    return view('public.product');
+    return view('page.product');
 })->name('product');
