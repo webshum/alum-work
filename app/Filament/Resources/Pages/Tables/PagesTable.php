@@ -19,7 +19,8 @@ class PagesTable
         return $table
             ->columns([
                 ImageColumn::make('thumbnails')
-                    ->label('Image'),
+                    ->label('Image')
+                    ->disk('public'),
 
                 TextColumn::make('title')
                     ->label('Title')

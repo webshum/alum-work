@@ -36,7 +36,9 @@ class PageForm
                     FileUpload::make('thumbnails')
                         ->label('Image')
                         ->image()
+                        ->disk('public')
                         ->directory('pages')
+                        ->visibility('public')
                         ->columnSpanFull()
                         ->nullable(),
 

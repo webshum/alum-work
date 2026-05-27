@@ -5,39 +5,21 @@
 <section class="main-slider">
     <swiper-container>
         <swiper-slide>
-            <img src="{{ asset('images/banner-img.png') }}" alt="">
+            <img src="{{ Storage::url($page->thumbnails) }}" alt="">
 
             <div class="center">
-                <h1><span>ALUM</span>WORK</h1>
-                <p class="sub">Ihr zuverlässiger Partner im Bereich</p>
-                <p>Terrassenüberdachungen, Carports, Sommergärten</p>
-            </div>
-        </swiper-slide>
-
-        <swiper-slide>
-            <img src="{{ asset('images/banner-img.png') }}" alt="">
-
-            <div class="center">
-                <h1><span>ALUM</span>WORK</h1>
-                <p class="sub">Ihr zuverlässiger Partner im Bereich</p>
-                <p>Terrassenüberdachungen, Carports, Sommergärten</p>
+                <h1><span>ALUM</span><span class="!text-white">WORK</span></h1>
+                @if($page->meta_description)
+                    <p class="sub">{{ $page->meta_description }}</p>
+                @endif
             </div>
         </swiper-slide>
     </swiper-container>
-</section>    
-
-<section class="intro">
-    <div class="center">
-        <p>
-            Wir legen großen Wert auf Qualität und Zufriedenheit in der Erfüllung der Wünsche unserer Kunden. Deshalb steht auch die fachgerechte, kompetente Beratung der Kunden yan erster Stelle. Ihren Wünschen
-            entsprechend, planen wir Ihre Terrassenüberdachung, Carport oder Sommergarten unter Verwendung moderner Technik und ausgezeichneter Qualität.
-        </p>
-
-        <p>
-            Kunden und Interessenten haben die Möglichkeit sich direkt bei Ihnen zuhause oder Geschäftsstelle beraten zu werden. Vereinbaren Sie gleich ein Beratungstermin und profitieren von den aktuellen Rabatten und Angeboten. Wir beraten Sie gerne!
-        </p>
-    </div>
 </section>
+
+@if($page->content)
+    <x-intro>{!! $page->content !!}</x-intro>
+@endif
 
 <section class="category-grid">
     <div class="center">
@@ -100,7 +82,7 @@
                     <h3>Service & unsere Produkte</h3>
                 </div>
             </div>
-            
+
             <div class="service-manager">
                 <img src="{{ asset('images/service-1.png') }}" alt="Manager">
             </div>
@@ -110,7 +92,7 @@
  <section class="promo">
     <div class="center">
         <h2>Profitieren Sie jetzt von unseren Aktionen</h2>
-        
+
         <div class="wrap">
             <a href="#" class="item">
              <img src="{{ asset('images/promo-1.jpg') }}" alt="10% Rabatt">
@@ -146,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="acordeon-wrap">
                     <div class="acordeon-btn">
                         <span>Ist eine Baugenehmigung erforderlich?</span>
@@ -190,11 +172,11 @@
             <div class="guide-label">RATGEBER & WISSEN</div>
             <h2 class="guide-title">Baugenehmigung für Terrassendächer</h2>
             <p class="guide-text">
-                Erfahren Sie alles über die rechtlichen Rahmenbedingungen und ab wann Sie in Ihrem 
+                Erfahren Sie alles über die rechtlichen Rahmenbedingungen und ab wann Sie in Ihrem
                 Bundesland eine Genehmigung benötigen.
             </p>
             <blockquote class="guide-quote">
-                Wussten Sie schon? In vielen Regionen sind Überdachungen bis zu einer bestimmten 
+                Wussten Sie schon? In vielen Regionen sind Überdachungen bis zu einer bestimmten
                 Größe genehmigungsfrei.
             </blockquote>
             <a href="#" class="guide-link">Zum Artikel →</a>
@@ -209,7 +191,7 @@
                 <span class="subtitle">REFERENZEN</span>
                 <h2>Unsere Referenzen</h2>
             </div>
-            
+
             <div class="referenc-nav">
                 <button class="slider-prev" type="button">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -225,18 +207,18 @@
 
             <a href="#" class="referenc-all">
                 Alle Projekte Ansehen
-                <img src="{{ asset('images/ic-arrow.svg') }}" alt=""> 
+                <img src="{{ asset('images/ic-arrow.svg') }}" alt="">
             </a>
         </div>
 
-        <swiper-container 
+        <swiper-container
             class="referenc-swiper"
-            slides-per-view="3" 
+            slides-per-view="3"
             space-between="24"
             breakpoints='{"320": {"slidesPerView": 1.2, "spaceBetween": 16}, "768": {"slidesPerView": 2, "spaceBetween": 20}, "1024": {"slidesPerView": 3, "spaceBetween": 24}}'
             navigation-next-el=".referenc-slider .slider-next"
             navigation-prev-el=".referenc-slider .slider-prev">
-            
+
             <swiper-slide>
                 <a href="#" class="referenc-card">
                     <img src="{{ asset('images/referenc-1.png') }}" alt="">
@@ -283,8 +265,8 @@
 
         </swiper-container>
     </div>
-</section> 
-                                                                                                                                           
-                                                                                                                                                                    
+</section>
+
+
 
 @endsection

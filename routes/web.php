@@ -1,10 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('public.index');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/pergolas', function () {
     return view('public.pergolas');

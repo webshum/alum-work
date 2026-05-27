@@ -46,6 +46,7 @@ class CategoryForm
                     FileUpload::make('thumbnails')
                         ->label('Image')
                         ->image()
+                        ->disk('public')
                         ->directory('categories')
                         ->columnSpanFull()
                         ->nullable(),
