@@ -42,15 +42,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: var(--inter);
-    font-size: 20px;
+    font-size: clamp(14px, 1.5vw, 20px);
     line-height: 1.25;
     color: var(--body);
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
-
-    @media (max-width: 767px) {
-        font-size: 14px;
-    }
 }
 
 a {
@@ -77,6 +73,7 @@ img {
 
 .center {
     max-width: 1230px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 15px;
 }
