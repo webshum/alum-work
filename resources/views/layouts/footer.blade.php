@@ -1,86 +1,74 @@
+@use('App\Models\Menu')
+
+@php
+    $service = Menu::where('location', 'service')->first();
+    $unsere_produkte = Menu::where('location', 'unsere_produkte')->first();
+    $rechtliches = Menu::where('location', 'rechtliches')->first();
+@endphp
+
 <footer class="footer">
-    <div class="center">
-        <div class="wrap">
-            <div class="footer-col footer-info">
-                <a href="/" class="footer-logo">
-                    <img src="{{ asset('images/logo-footer.svg') }}" alt="ALUMWORK">
-                </a>
-                
-                <ul class="footer-contacts">
-                    <li>
-                        <img src="{{ asset('images/ic-phone.svg') }}" alt=""> 
-						<a href="tel:079319589177">07931 / 958 91 77</a>
-                    </li>
-                    <li>
-						<img src="{{ asset('images/ic-mobile.svg') }}" alt=""> 
-                        <a href="tel:016751502254">01675 / 150 22 54</a>
-                    </li>
-                    <li>
-						<img src="{{ asset('images/ic-mail.svg') }}" alt=""> 
-                        <a href="mailto:info@alumwork.de">info@alumwork.de</a>
-                    </li>
-                    <li>
-						<img src="{{ asset('images/ic-location.svg') }}" alt=""> 
-                        <span>Nussacker 1 | 97999<br>Igersheim</span>
-                    </li>
-                </ul>
+    <div class="center footer-main">
+        <div class="footer-col footer-info">
+            <a href="/" class="footer-logo">
+                <img src="{{ asset('images/logo-footer.svg') }}" alt="ALUMWORK">
+            </a>
 
-                <div class="footer-socials">
-                    <a href="#" aria-label="Instagram">
-						<img src="{{ asset('images/ic-inst.svg') }}" alt=""> 
-					</a>
-                    <a href="#" aria-label="TikTok">
-						<img src="{{ asset('images/ic-tiktok.svg') }}" alt=""> 
-					</a>
-                    <a href="#" aria-label="Facebook">
-						<img src="{{ asset('images/ic-fb.svg') }}" alt=""> 
-					</a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4 class="footer-title">Service</h4>
-                <ul class="footer-menu">
-                    <li><a href="#">Montage</a></li>
-                    <li><a href="#">Lieferung</a></li>
-                    <li><a href="#">Beratung</a></li>
-                    <li><a href="#">Garantie</a></li>
-                    <li><a href="#">Häufig gestellte Fragen</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4 class="footer-title">Unsere Produkte</h4>
-                <ul class="footer-menu">
-                    <li><a href="#">Terrassenüberdachung</a></li>
-                    <li><a href="#">Balkonüberdachung</a></li>
-                    <li><a href="#">Carport</a></li>
-                    <li><a href="#">Vordach</a></li>
-                    <li><a href="#">Markise</a></li>
-                    <li><a href="#">Beschattung</a></li>
-                    <li><a href="#">Raffstore</a></li>
-                    <li><a href="#">Geländer</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4 class="footer-title">Rechtliches</h4>
-                <ul class="footer-menu">
-                    <li><a href="#">AGB</a></li>
-                    <li><a href="#">Datenschutz</a></li>
-                    <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Vorteile</a></li>
-                </ul>
-            </div>
+            <x-address class="flex flex-col gap-[12px] not-italic text-[20px]"/>
+            <x-social/>
         </div>
 
-        <div class="footer-bottom">
-            <p class="footer-copy">© ALUMWORK - 2025 Alle Rechte vorbehalten</p>
-            <ul class="footer-bottom-menu">
-                <li><a href="#">AGB</a></li>
-                <li><a href="#">Datenschutzerklärung</a></li>
-                <li><a href="#">Impressum</a></li>
+        @if($service->items->isNotEmpty())
+        <div class="footer-col">
+            <h4>Service</h4>
+            <ul>
+                @foreach($service->items as $item)
+                <li>
+                    <a href="{{ $item?->page->slug ?? $item->url }}" target="{{ $item->target }}">
+                        {{ $item->title }}
+                    </a>
+                </li>
+                @endforeach
             </ul>
         </div>
+        @endif
+
+        @if($unsere_produkte->items->isNotEmpty())
+        <div class="footer-col">
+            <h4>Unsere Produkte</h4>
+            <ul>
+                @foreach($unsere_produkte->items as $item)
+                <li>
+                    <a href="{{ $item?->page->slug ?? $item->url }}" target="{{ $item->target }}">
+                        {{ $item->title }}
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        @if($rechtliches->items->isNotEmpty())
+        <div class="footer-col">
+            <h4>Rechtliches</h4>
+            <ul>
+                @foreach($rechtliches->items as $item)
+                <li>
+                    <a href="{{ $item?->page->slug ?? $item->url }}" target="{{ $item->target }}">
+                        {{ $item->title }}
+                    </a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+    </div>
+
+    <div class="center footer-bottom">
+        <p class="copyright">&copy; {{ config('app.name') }} - {{ date('Y') }} Alle Rechte vorbehalten</p>
+        <ul>
+            <li><a href="#">AGB</a></li>
+            <li><a href="#">Datenschutzerklärung</a></li>
+            <li><a href="#">Impressum</a></li>
+        </ul>
     </div>
 </footer>

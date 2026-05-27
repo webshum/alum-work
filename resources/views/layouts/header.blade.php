@@ -52,17 +52,7 @@
                     @endforeach
                 </ul>
 
-                <address class="hidden">
-                    <a href="tel:+4979319589177">
-                        <x-icons name="home-phone"/>
-                        <span>07931 / 958 91 77</span>
-                    </a>
-
-                    <a href="tel:+4915731092254">
-                        <x-icons name="home-work"/>
-                        <span>01573 / 109 22 54</span>
-                    </a>
-                </address>
+                <x-address :visible="['phone']" class="hidden"/>
             </nav>
         @endif
     </div>

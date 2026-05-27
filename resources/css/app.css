@@ -33,12 +33,14 @@
     --akcent: #4DB4E8;
     --title: #111111;
     --body: #333333;
+    --green: #0F3D2E;
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: var(--inter);
+    font-size: 20px;
     line-height: 1.25;
     color: var(--body);
 }
@@ -46,16 +48,18 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.2s;
 }
 
-h1, h2, h3, h4, h5, h6 {color: var(--title);}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--title);
+    font-weight: bold;
+}
 
 img {
     max-width: 100%;
     display: block;
 }
-
-.wrapper {overflow: hidden;}
 
 .center {
     max-width: 1230px;

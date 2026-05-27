@@ -13,6 +13,7 @@
         max-width: clamp(64px, 23vw, 300px);
         position: relative;
         z-index: 992;
+        user-select: none;
     }
 
     .menu-toggle {
@@ -41,15 +42,12 @@
 
     @media (max-width: 767px) {
         padding: 20px 0;
-        .phone {
-            display: inline-block;
-        }
+        .phone {display: inline-block;}
         .menu-toggle {display: inline-flex;}
     }
 }
 
 .nav {
-    font-size: 20px;
     font-family: var(--roboto);
     color: var(--title);
 
@@ -134,13 +132,12 @@
     }
 
     @media (max-width: 767px) {
-        display: none;
         opacity: 0;
         position: fixed;
         inset: 0;
         z-index: 991;
         background-color: #fff;
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
         padding: 30px;

@@ -13,7 +13,7 @@
     </head>
 
     <body class="@yield('body-class')">
-        <div class="wrapper overflow-x-hidden">
+        <div class="overflow-hidden">
             @include('layouts.header')
 
             <main class="main">
