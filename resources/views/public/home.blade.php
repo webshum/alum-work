@@ -8,9 +8,12 @@
             <img src="{{ Storage::url($page->thumbnails) }}" alt="">
 
             <div class="center">
-                <h1><span>ALUM</span><span class="!text-white">WORK</span></h1>
+                <h1>ALUM<span class="!text-white">WORK</span></h1>
+
                 @if($page->meta_description)
-                    <p class="sub">{{ $page->meta_description }}</p>
+                    <div class="text mt-[40px] max-w-[745px]">
+                        <p>{{ $page->meta_description }}</p>
+                    </div>
                 @endif
             </div>
         </swiper-slide>
