@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap');
 @import 'tailwindcss';
 
-@import './fonts.css';
 @import './layouts/footer.css';
 @import './layouts/header.css';
 
@@ -27,20 +27,20 @@
         'Noto Color Emoji';
 }
 
+:root {
+    --inter: "Inter", sans-serif;
+    --roboto: "Roboto Flex", sans-serif;
+    --akcent: #4DB4E8;
+    --title: #111111;
+    --body: #333333;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    box-sizing: border-box;
+    font-family: var(--inter);
     line-height: 1.25;
-    background: #fff;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    color: var(--body);
 }
 
 a {
@@ -48,10 +48,14 @@ a {
     color: inherit;
 }
 
+h1, h2, h3, h4, h5, h6 {color: var(--title);}
+
 img {
     max-width: 100%;
     display: block;
 }
+
+.wrapper {overflow: hidden;}
 
 .center {
     max-width: 1230px;
@@ -59,105 +63,22 @@ img {
     padding: 0 15px;
 }
 
-.wrapper {
-    overflow: hidden;
-}
-
 .intro {
-   padding: 30px 0;
-}
+    padding: 30px 0;
 
-.intro h2 {
-    font-size: clamp(24px, 3vw, 32px);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    margin-bottom: 40px;
-    color: #000;
-}
-
-.intro p {
-    font-weight: 400;
-    color: #42403F;
-    font-size: clamp(14px, 2.7vw, 20px);
-    line-height: 1.6;
-}
-
-.intro p + p {
-    margin-top: 2.2em;
-}
-
-/* 1024px - 769px: планшет горизонталь */
-@media (max-width: 1024px) {
-    .intro {
-        padding: 25px 0;
+    h2 {
+        font-size: clamp(24px, 3vw, 32px);
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        margin-bottom: 40px;
+        color: #000;
     }
 
-    .intro h2 {
-        margin-bottom: 32px;
-    }
-
-    .intro p + p {
-        margin-top: 1.8em;
-    }
-}
-
-/* 768px - 576px: планшет вертикаль */
-@media (max-width: 768px) {
-    .intro {
-        padding: 20px 0;
-    }
-
-    .intro h2 {
-        font-size: 26px;
-        margin-bottom: 28px;
-    }
-
-    .intro p {
-        font-size: 16px;
-    }
-
-    .intro p + p {
-        margin-top: 1.5em;
-    }
-}
-
-/* 575px - 390px: мобіли */
-@media (max-width: 575px) {
-    .intro {
-        padding: 18px 0;
-    }
-
-    .intro h2 {
-        font-size: 22px;
-        margin-bottom: 20px;
-    }
-
-    .intro p {
-        font-size: 15px;
-        line-height: 1.5;
-    }
-
-    .intro p + p {
-        margin-top: 1.3em;
-    }
-}
-
-/* 390px і менше: малі мобіли */
-@media (max-width: 390px) {
-    .intro {
-        padding: 16px 0;
-    }
-
-    .intro h2 {
-        font-size: 20px;
-        margin-bottom: 18px;
-    }
-
-    .intro p {
-        font-size: 14px;
-    }
-
-    .intro p + p {
-        margin-top: 1.2em;
+    p {
+        font-weight: 400;
+        color: #42403F;
+        font-size: clamp(14px, 2.7vw, 20px);
+        line-height: 1.6;
+        & + p {margin-top: 2.2em;}
     }
 }

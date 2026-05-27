@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Filament\Resources\Categories\Schemas;
+
+use Filament\Schemas\Schema;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Schemas\Components\Utilities\Set;
+use Illuminate\Support\Str;
+use App\Models\Category;
+
+class CategoryForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Section::make('Main')->schema([
+                    TextInput::make('title')
+                        ->label('Title')
+                        ->required()
+                        ->live(onBlur: true)
+                        ->afterStateUpdated(function (Set $set, ?string $state) {
+                            $set('slug', Str::slug($state));
+                        }),
+
+                    Select::make('parent_id')
+                        ->label('Parent')
+                        ->options(
+                            Category::query()->where('is_active', true)->pluck('title', 'id')
+                        )
+                        ->searchable()
+                        ->nullable(),
+
+                    TextInput::make('slug')
+                        ->label('URL (slug)')
+                        ->required()
+                        ->unique(ignoreRecord: true)
+                        ->prefix('/'),
+
+                    FileUpload::make('thumbnails')
+                        ->label('Image')
+                        ->image()
+                        ->directory('categories')
+                        ->columnSpanFull()
+                        ->nullable(),
+
+                    Toggle::make('is_active')
+                        ->label('Active')
+                        ->default(true)
+                ])->columnSpanFull(),
+
+                Section::make('SEO')
+                    ->collapsed()
+                    ->schema([
+                        TextInput::make('meta_title')
+                            ->label('Meta Title')
+                            ->maxLength(60)
+                            ->helperText('Up to 60 characters recommended'),
+
+                        Textarea::make('meta_description')
+                            ->label('Meta Description')
+                            ->rows(2)
+                            ->maxLength(160)
+                            ->helperText('Up to 160 characters recommended')
+                ])->columnSpanFull()
+            ]);
+    }
+}

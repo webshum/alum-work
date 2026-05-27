@@ -1,54 +1,69 @@
+@use('App\Models\Menu')
+@php($menu = Menu::where('location', 'header')->first())
+
 <header class="header">
     <div class="center">
-        <a href="/" class="header-logo">
-            <img src="{{ asset('images/logo.svg') }}" alt="ALUMWORK">
+        <a href="/" class="logo">
+            <picture>
+                <source srcset="{{ asset('images/logo-mob.svg') }}" media="(max-width: 768px)">
+                <img src="{{ asset('images/logo.svg') }}" alt="AlumWork">
+            </picture>
         </a>
 
-        <!-- Іконка телефону + Бургер для мобайлу -->
-        <div class="header-actions">
-            <a href="/" class="logo-mob">
-                <img src="{{ asset('images/logo-mob.svg') }}" alt="ALUMWORK">
-            </a>
+        <a href="tel:+4979319589177" class="phone hidden">
+            <x-icons name="phone" />
+        </a>
 
-            <a href="tel:+49123456789" class="header-phone">
-                <img src="{{ asset('images/ic-phoneMob.svg') }}" alt="ALUMWORK">
-            </a>
-            <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
-                <span class="menu-text">MENU</span>
-                <span class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-            </button>
-        </div>
+        @if(!empty($menu))
+        <button class="menu-toggle hidden">
+            <span>MENU</span>
+            <span class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </button>
+        @endif
 
-        <nav class="header-nav">
-            <ul class="nav-list">
-                <li class="nav-item has-dropdown">
-                    <a href="#" class="nav-link">Produkte</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Terrassenüberdachung</a></li>
-                        <li><a href="#">Sommergarten</a></li>
-                        <li><a href="#">Carport</a></li>
-                        <li><a href="#">Eingangsüberdachung</a></li>
-                        <li><a href="#">Balkonüberdachung</a></li>
-                        <li><a href="#">Sonnenschutz</a></li>
-                        <li><a href="#">Glasschiebewand</a></li>
-                        <li><a href="#">Geländer</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link">Leistungen</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Über Uns</a></li>
-                <li class="nav-item has-dropdown">
-                    <a href="#" class="nav-link">Kontakt</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Terrassenüberdachung</a></li>
-                        <li><a href="#">Sommergarten</a></li>
-                        <li><a href="#">Carport</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
+        @if(!empty($menu))
+            <nav class="nav">
+                <ul>
+                    @foreach($menu->items->whereNull('parent_id') as $item)
+                        <li>
+                            <a href="{{ $item->page?->slug ?? $item->url }}" target="{{ $item->target }}">
+                                <span>{{ $item->title }}</span>
+                                @if($item->children->isNotEmpty())
+                                    <x-icons name="arr"/>
+                                @endif
+                            </a>
+
+                            @if($item->children->isNotEmpty())
+                                <ul class="dropdown">
+                                    @foreach($item->children as $child)
+                                        <li>
+                                            <a href="{{ $child->page?->slug ?? $child->url }}" target="{{ $child->target }}">
+                                                <span>{{ $child->title }}</span>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </li>
+                    @endforeach
+                </ul>
+
+                <address class="hidden">
+                    <a href="tel:+4979319589177">
+                        <x-icons name="home-phone"/>
+                        <span>07931 / 958 91 77</span>
+                    </a>
+
+                    <a href="tel:+4915731092254">
+                        <x-icons name="home-work"/>
+                        <span>01573 / 109 22 54</span>
+                    </a>
+                </address>
+            </nav>
+        @endif
     </div>
 </header>
