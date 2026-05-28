@@ -6,9 +6,8 @@
 
 @import './components/main-slider.css';
 @import './components/product/card.css';
-
 @import './components/service.css';
-@import './components/faq.css';
+
 @import './components/referenc-slider.css';
 @import './components/advantages.css';
 @import './components/page-product.css';
@@ -35,6 +34,7 @@
     --title: #111111;
     --body: #333333;
     --green: #0F3D2E;
+    --orange: #EA580C;
 }
 
 body {
@@ -75,4 +75,37 @@ img {
     width: 100%;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+.button {
+    background: var(--orange);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    min-height: 48px;
+    border-radius: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 32px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    span {
+        position: relative;
+        z-index: 2;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 0;
+        background: var(--akcent);
+        transition: all 0.3s;
+    }
+
+    &:hover:after {width: 100%;}
 }

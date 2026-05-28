@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Category;
 use App\Models\Action;
+use App\Models\Faq;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,8 @@ class HomeController extends Controller
         $page = Page::active()->where('slug', 'heim')->first();
         $actions = Action::active()->orderBy('sort')->get();
         $categories = Category::active()->get();
+        $faqs = Faq::active()->get();
 
-        return view('page.home', compact('page', 'categories', 'actions'));
+        return view('page.home', compact('page', 'categories', 'actions', 'faqs'));
     }
 }

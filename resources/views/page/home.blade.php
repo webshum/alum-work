@@ -5,6 +5,7 @@
 
 @section('content')
 
+{{-- Main Slider --}}
 @if(!empty($page))
 <section class="main-slider">
     <swiper-container>
@@ -24,11 +25,15 @@
     </swiper-container>
 </section>
 @endif
+{{-- // Main Slider --}}
 
+{{-- Intro --}}
 @if(!empty($page) && $page->content)
     <x-intro>{!! $page->content !!}</x-intro>
 @endif
+{{-- // Intro --}}
 
+{{-- Category --}}
 @if($categories->isNotEmpty())
 <section class="category-grid">
     <div class="center">
@@ -42,89 +47,67 @@
     </div>
 </section>
 @endif
+{{-- // Category --}}
 
+{{-- Service --}}
 <x-service/>
+{{-- // Service --}}
 
+{{-- Action --}}
 @if(!empty($actions))
     <x-action :$actions/>
 @endif
+{{-- // Action --}}
 
-<section class="faq-guide">
-    <div class="center">
-        <div class="faq">
-            <h2 class="faq-title">Häufige Fragen</h2>
+{{-- Faq --}}
+<section class="py-[30px] bg-[#F2F6F2] hidden md:block">
+    <div class="center grid md:grid-cols-1 lg:grid-cols-2 gap-[25px]">
+        @if(!empty($faqs))
+            <div class="faq">
+                <h2 class="!text-white text-[36px] mb-[15px]">Häufige Fragen</h2>
 
-            <div class="acordeon main-acordeon">
-                <div class="acordeon-wrap">
-                    <div class="acordeon-btn">
-                        <span>Wie lange dauert die Montage?</span>
-                    </div>
+                <div class="acordeon main-acordeon">
+                    @foreach($faqs as $faq)
+                    <div class="acordeon-wrap">
+                        <div class="acordeon-btn">
+                            <span>{{ $faq->title }}</span>
+                        </div>
 
-                    <div class="acordeon-content">
-                        <div class="inner">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
+                        <div class="acordeon-content">
+                            <div class="inner">
+                                {!! $faq->description !!}
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
 
-                <div class="acordeon-wrap">
-                    <div class="acordeon-btn">
-                        <span>Ist eine Baugenehmigung erforderlich?</span>
-                    </div>
-
-                    <div class="acordeon-content">
-                        <div class="inner">
-                            <p>
-                                Проведение УЗИ диагностики (УЗИ органов брюшной полости, почек и забрюшинного пространства, всех сосудов; лимфатических узлов, мягких тканей, желез, мочевого пузыря и т.д.,). ЭХО-КГ (взрослым и детям). Контроль работы медицинской аппаратуры. Ведение истории болезни в электронном виде (работа в МИС Инфоклиника/Медиалог).
-                            </p>
-
-                            <p>
-                                Высшее профессиональное медицинское образование "Лечебное дело". <br><br>
-                                Наличие действующего сертификата по ультразвуковой диагностике.<br><br>
-                                Опыт работы на аналогичной должности от 3-х лет.<br><br>Приветствуется опыт коммерческих амбулаторных приемов в государственных и частных медицинских учреждениях.
-                                <br><br>Наличие медицинской книжки.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="acordeon-wrap">
-                    <div class="acordeon-btn">
-                        <span>Welche Schneelasten sind möglich?</span>
-                    </div>
-
-                    <div class="acordeon-content">
-                        <div class="inner">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                <x-button class="mt-[40px]">Alle FAQs lesen</x-button>
             </div>
-
-            <button class="faq-button">Alle FAQs lesen</button>
-        </div>
+        @endif
 
         <div class="guide">
-            <div class="guide-label">RATGEBER & WISSEN</div>
-            <h2 class="guide-title">Baugenehmigung für Terrassendächer</h2>
-            <p class="guide-text">
+            <div class="label">RATGEBER & WISSEN</div>
+            <h2 class="text-[36px] mb-[25px]">Baugenehmigung für Terrassendächer</h2>
+
+            <div class="text">
                 Erfahren Sie alles über die rechtlichen Rahmenbedingungen und ab wann Sie in Ihrem
                 Bundesland eine Genehmigung benötigen.
-            </p>
-            <blockquote class="guide-quote">
+            </div>
+
+            <blockquote class="quote">
                 Wussten Sie schon? In vielen Regionen sind Überdachungen bis zu einer bestimmten
                 Größe genehmigungsfrei.
             </blockquote>
-            <a href="#" class="guide-link">Zum Artikel →</a>
+
+            <a href="#" class="link">Zum Artikel →</a>
         </div>
     </div>
 </section>
+{{-- // Faq --}}
 
-<section class="referenc-slider">
+{{-- References --}}
+<section class="references">
     <div class="center">
         <div class="referenc-top">
             <div class="referenc-title">
@@ -206,5 +189,6 @@
         </swiper-container>
     </div>
 </section>
+{{-- // References --}}
 
 @endsection
