@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
+            $table->foreignId('category_id')->constrained()->nullOnDelete();
             $table->longText('content')->nullable();
             $table->string('thumbnails')->nullable();
             $table->decimal('price', 10, 2);
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->integer('discount')->nullable();
 
             $table->boolean('is_active')->default(true);
-            $table->boolean('recommended')->default(true);
+            $table->boolean('recommended')->default(false);
 
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
