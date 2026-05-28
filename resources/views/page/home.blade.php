@@ -67,8 +67,8 @@
                 <h2 class="!text-white text-[36px] mb-[15px]">Häufige Fragen</h2>
 
                 <div class="acordeon main-acordeon">
-                    @foreach($faqs as $faq)
-                    <div class="acordeon-wrap">
+                    @foreach($faqs as $index => $faq)
+                    <div class="acordeon-wrap {{ $index >= 3 ? 'hidden' : '' }}">
                         <div class="acordeon-btn">
                             <span>{{ $faq->title }}</span>
                         </div>
