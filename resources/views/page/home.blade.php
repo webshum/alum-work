@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title'){{ config('app.name') }}@endsection
 @section('description'){{ $page->meta_description ?? '' }}@endsection
-@section('og_image'){{ Storage::url($page->thumbnails) }}@endsection
+@section('og_image'){{ Storage::url($page->thumbnails ?? null) }}@endsection
 
 @section('content')
+
+@if(!empty($page))
 <section class="main-slider">
     <swiper-container>
         <swiper-slide>
@@ -21,8 +23,9 @@
         </swiper-slide>
     </swiper-container>
 </section>
+@endif
 
-@if($page->content)
+@if(!empty($page) && $page->content)
     <x-intro>{!! $page->content !!}</x-intro>
 @endif
 
@@ -42,25 +45,9 @@
 
 <x-service/>
 
- <section class="promo">
-    <div class="center">
-        <h2>Profitieren Sie jetzt von unseren Aktionen</h2>
-
-        <div class="wrap">
-            <a href="#" class="item">
-             <img src="{{ asset('images/promo-1.jpg') }}" alt="10% Rabatt">
-            </a>
-
-            <a href="#" class="item">
-                <img src="{{ asset('images/promo-2.jpg') }}" alt="Kontakt aufnehmen">
-            </a>
-
-            <a href="#" class="item">
-                <img src="{{ asset('images/promo-3.jpg') }}" alt="LED-Lampen-Set">
-            </a>
-        </div>
-    </div>
-</section>
+@if(!empty($actions))
+    <x-action :$actions/>
+@endif
 
 <section class="faq-guide">
     <div class="center">

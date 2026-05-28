@@ -8,4 +8,8 @@ class Page extends Model
 {
     protected $fillable = ['title', 'slug', 'content', 'thumbnails', 'meta_title', 'meta_description', 'is_active'];
     protected $casts = ['is_active' => 'boolean'];
+
+    public function scopeActive($query) {
+        return $query->where('is_active', 1);
+    }
 }
