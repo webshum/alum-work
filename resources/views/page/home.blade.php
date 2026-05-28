@@ -1,7 +1,9 @@
 @extends('layouts.app')
+@section('title'){{ config('app.name') }}@endsection
+@section('description'){{ $page->meta_description ?? '' }}@endsection
+@section('og_image'){{ Storage::url($page->thumbnails) }}@endsection
 
 @section('content')
-
 <section class="main-slider">
     <swiper-container>
         <swiper-slide>
