@@ -20,7 +20,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle, transparent 50%, rgba(0,0,0,.5) 100%);
+            background: radial-gradient(circle, transparent 0%, rgba(0,0,0,.2) 100%);
             transition: all 0.5s;
             transform: scale(1.5);
             opacity: 0;

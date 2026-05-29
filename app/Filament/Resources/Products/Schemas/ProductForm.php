@@ -2,11 +2,13 @@
 
 namespace App\Filament\Resources\Products\Schemas;
 
+use App\Models\Category;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Section;
@@ -38,6 +40,13 @@ class ProductForm
                                     ->required()
                                     ->unique(ignoreRecord: true)
                                     ->prefix('/'),
+
+                                Select::make('category_id')
+                                    ->label('Category')
+                                    ->options(
+                                        Category::active()->pluck('title', 'id')
+                                    )
+                                    ->nullable(),
 
                                 FileUpload::make('thumbnails')
                                     ->label('Image')
@@ -97,7 +106,7 @@ class ProductForm
 
                                         Toggle::make('recommended')
                                             ->label('Recommended')
-                                            ->default(true),
+                                            ->default(false),
                                     ])
                             ]),
                         Tab::make('Gallery')

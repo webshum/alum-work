@@ -106,89 +106,55 @@
 </section>
 {{-- // Faq --}}
 
-{{-- References --}}
+{{-- Recommended --}}
+@if(!empty($references))
 <section class="references">
     <div class="center">
-        <div class="referenc-top">
-            <div class="referenc-title">
+        <div class="topbar">
+            <div>
                 <span class="subtitle">REFERENZEN</span>
                 <h2>Unsere Referenzen</h2>
             </div>
 
-            <div class="referenc-nav">
-                <button class="slider-prev" type="button">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
+            <div class="controls">
+                <button class="prev" type="button">
+                    <x-icons name="arr-2"/>
                 </button>
-                <button class="slider-next" type="button">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
+                <button class="next" type="button">
+                    <x-icons name="arr-2" class="-scale-x-100"/>
                 </button>
             </div>
 
-            <a href="#" class="referenc-all">
-                Alle Projekte Ansehen
-                <img src="{{ asset('images/ic-arrow.svg') }}" alt="">
+            <a href="#">
+                <span>Alle Projekte Ansehen</span>
+                <x-icons name="arr-full"/>
             </a>
         </div>
 
         <swiper-container
-            class="referenc-swiper"
-            slides-per-view="3"
-            space-between="24"
-            breakpoints='{"320": {"slidesPerView": 1.2, "spaceBetween": 16}, "768": {"slidesPerView": 2, "spaceBetween": 20}, "1024": {"slidesPerView": 3, "spaceBetween": 24}}'
-            navigation-next-el=".referenc-slider .slider-next"
-            navigation-prev-el=".referenc-slider .slider-prev">
+            breakpoints='{"320": {"slidesPerView": 1.03, "spaceBetween": 10}, "400": {"slidesPerView": 1.2, "spaceBetween": 16}, "767": {"slidesPerView": 2, "spaceBetween": 20}, "1024": {"slidesPerView": 3, "spaceBetween": 24}}'
+            navigation-next-el=".references .next"
+            navigation-prev-el=".references .prev">
 
+            @foreach ($references as $reference)
             <swiper-slide>
-                <a href="#" class="referenc-card">
-                    <img src="{{ asset('images/referenc-1.png') }}" alt="">
-                    <div class="referenc-info">
-                        <span class="referenc-location">Ulm, Baden-Württemberg, 2025</span>
-                        <h3>Moderne Glas-Oase in Hanglage</h3>
-                        <p>Sonderanfertigung mit integrierter LED-Beleuchtung und seitlichen Glaselementen.</p>
+                <a href="{{ route('product', $reference->slug) }}" class="card">
+                    <div class="image">
+                        <img src="{{ Storage::url($reference->thumbnails) }}" alt="">
+                    </div>
+
+                    <div class="descr">
+                        <span>Ulm, Baden-Württemberg, 2025</span>
+                        <h3>{{ $reference->title }}</h3>
+                        <p>{{ $reference->meta_description }}</p>
                     </div>
                 </a>
             </swiper-slide>
-
-            <swiper-slide>
-                <a href="#" class="referenc-card">
-                    <img src="{{ asset('images/referenc-2.png') }}" alt="">
-                    <div class="referenc-info">
-                        <span class="referenc-location">Wertheim, Baden-Württemberg, 2026</span>
-                        <h3>Carport & Terrasse</h3>
-                        <p>Einheitliches Design für das gesamte Grundstück in Anthrazit-Optik.</p>
-                    </div>
-                </a>
-            </swiper-slide>
-
-            <swiper-slide>
-                <a href="#" class="referenc-card">
-                    <img src="{{ asset('images/referenc-3.png') }}" alt="">
-                    <div class="referenc-info">
-                        <span class="referenc-location">Nürnberg, Bayern, 2025</span>
-                        <h3>Premium Lamellendach</h3>
-                        <p>Variable Lichtsteuerung durch automatisierte Lamellen für Komfort.</p>
-                    </div>
-                </a>
-            </swiper-slide>
-
-            <swiper-slide>
-                <a href="#" class="referenc-card">
-                    <img src="{{ asset('images/referenc-3.png') }}" alt="">
-                    <div class="referenc-info">
-                        <span class="referenc-location">Nürnberg, Bayern, 2025</span>
-                        <h3>Premium Lamellendach</h3>
-                        <p>Variable Lichtsteuerung durch automatisierte Lamellen für Komfort.</p>
-                    </div>
-                </a>
-            </swiper-slide>
-
+            @endforeach
         </swiper-container>
     </div>
 </section>
-{{-- // References --}}
+@endif
+{{-- // Recommended --}}
 
 @endsection

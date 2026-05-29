@@ -5,10 +5,10 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/pergolas', function () {
-    return view('page.pergolas');
-})->name('pergolas');
+Route::get('/categories/{product}', function () {
+    return view('page.product');
+})->name('categories');
 
-Route::get('/product', function () {
+Route::get('/product/{product}', function () {
     return view('page.product');
 })->name('product');

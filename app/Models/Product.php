@@ -9,6 +9,7 @@ class Product extends Model
     protected $fillable = [
         'title',
         'slug',
+        'category_id',
         'content',
         'thumbnails',
         'price',
@@ -24,4 +25,12 @@ class Product extends Model
         'is_active' => 'boolean',
         'recommended' => 'boolean',
     ];
+
+    public function scopeActive($query) {
+        return $query->where('is_active', 1);
+    }
+
+    public function scopeRecommended($query) {
+        return $query->where('recommended', 1);
+    }
 }
