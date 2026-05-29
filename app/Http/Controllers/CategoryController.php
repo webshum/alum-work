@@ -8,9 +8,15 @@ use App\Models\Action;
 
 class CategoryController extends Controller
 {
+    public function index() {
+        $categories = Category::active()->get();
+
+        return view('categories.index', compact('categories'));
+    }
+
     public function show(Category $category) {
         $actions = Action::active()->orderBy('sort')->get();
 
-        return view('page.categories.show', compact('category', 'actions'));
+        return view('categories.show', compact('category', 'actions'));
     }
 }

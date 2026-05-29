@@ -11,6 +11,7 @@ class Product extends Model
         'slug',
         'category_id',
         'content',
+        'additional_information',
         'thumbnails',
         'price',
         'old_price',

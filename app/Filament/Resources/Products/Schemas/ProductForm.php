@@ -67,6 +67,16 @@ class ProductForm
                                     ])
                                     ->columnSpanFull(),
 
+                                RichEditor::make('additional_information')
+                                    ->label('Additional Information')
+                                    ->toolbarButtons([
+                                        'bold', 'italic', 'underline',
+                                        'bulletList', 'orderedList',
+                                        'h2', 'h3',
+                                        'link', 'blockquote',
+                                    ])
+                                    ->columnSpanFull(),
+
                                 Section::make('Pricing')
                                     ->columns(3)
                                     ->schema([

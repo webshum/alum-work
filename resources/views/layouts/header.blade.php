@@ -30,7 +30,7 @@
                 <ul>
                     @foreach($menu->items->whereNull('parent_id') as $item)
                         <li>
-                            <a href="{{ $item->page?->slug ?? $item->url }}" target="{{ $item->target }}">
+                            <a href="/{{ $item->page?->slug ?? $item->url }}" target="{{ $item->target }}">
                                 <span>{{ $item->title }}</span>
                                 @if($item->children->isNotEmpty())
                                     <x-icons name="arr"/>
@@ -41,7 +41,7 @@
                                 <ul class="dropdown">
                                     @foreach($item->children as $child)
                                         <li>
-                                            <a href="{{ $child->page?->slug ?? $child->url }}" target="{{ $child->target }}">
+                                            <a href="/{{ $child->page?->slug ?? $child->url }}" target="{{ $child->target }}">
                                                 <span>{{ $child->title }}</span>
                                             </a>
                                         </li>

@@ -2,7 +2,9 @@
     <swiper-container>
         <swiper-slide>
             @if(!empty($thumbnails))
-                <img src="{{ Storage::url($thumbnails) }}" alt="{{ $title ?? '' }}" loading="lazy">
+                <img src="{{ Storage::url($thumbnails) ?? asset('images/og_image.jpg') }}" alt="{{ $title ?? '' }}" loading="lazy">
+            @else
+                <img src="{{ asset('images/og_image.jpg') }}" alt="{{ $title ?? '' }}" loading="lazy">
             @endif
 
             <div class="center">
@@ -12,7 +14,7 @@
                     <h2>{{ $metaTitle }}</h2>
                 @endif
 
-                @if($description)
+                @if(!empty($description))
                     <div class="text mt-[40px] max-w-[745px]">
                         <p>{{ $description }}</p>
                     </div>

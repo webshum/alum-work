@@ -1,40 +1,26 @@
 @extends('layouts.app')
-
-@section('body-class', 'page-product')
+@section('title'){{ $product->meta_title ?? $product->title }} | {{ config('app.name') }}@endsection
+@section('description'){{ $product->meta_description ?? asset('images/og_image.jpg') }}@endsection
+@section('og_image'){{ Storage::url($product->thumbnails ?? null) }}@endsection
 
 @section('content')
 
-    <section class="main-slider">
-        <swiper-container>
-            <swiper-slide>
-                <img src="{{ asset('images/banner-img.png') }}" alt="">
+{{-- Main Slider --}}
+@if(!empty($product))
+<x-main-slider
+    :thumbnails="$product->thumbnails ?? asset('images/og_image.jpg')"
+    :title="$product->title"
+    :meta-title="$product->meta_title"
+    :description="$product->meta_description"
+/>
+@endif
+{{-- // Main Slider --}}
 
-                <div class="center">
-                    <h1><span>Alum</span>Standard</h1>
-                    <h2>konfigurieren & günstig kaufen</h2>
-                    <p>Günstige, bewährte Modelle – schnell lieferbar</p>
-                </div>
-            </swiper-slide>
-        </swiper-container>
-    </section>
-
-    <section class="intro">
-        <div class="center">
-            <h2>Pure Qualität zum besten Preis</h2>
-
-            <p>
-                Die neue Terrassenüberdachung AlumStandart ist eine äußerst präzise Entwicklung, made in Germany und ist statisch geprüft. Es überzeugt Sie durch hochwertige, langlebige Materialien, präzise durchdachte Verarbeitung und ein flächenbündiges Design in Kombination mit einem attraktiven Preis. Die neue Produktlinie AlumStandart punktet durch eine innen liegende Statik, die für eine durchgängige harmonische Dachoptik sorgt.
-            </p>
-
-            <p>
-                Die Lösung für jede Einbausituation: Speziell für die Anforderungen und Wünsche unserer Kunden entwickelt, passt sich die Terrassenüberdachung AlumStandart auch besonderen Einbausituationen an. Das umfangreiche Profilsortiment ermöglicht die Realisierung zahlreicher (Sonder-)Konstruktionen.
-            </p>
-
-            <p>
-                Fachkundige Beratung: Konfigurieren Sie sich jetzt in nur wenigen Schritten Ihr persönliches Terrassendach, und lassen Sie sich von unserem serviceorientierten Team fachgerecht beraten. Maximale Größe der Terrasse AlumStandart: 400 cm Tiefe  700 cm Länge.
-            </p>
-        </div>
-    </section>
+{{-- Intro --}}
+@if(!empty($product) && $product->content)
+    <x-intro>{!! $product->content !!}</x-intro>
+@endif
+{{-- // Intro --}}
 
 <section class="product">
     <div class="center">
@@ -118,28 +104,8 @@
     </div>
 </section>
 
-<section class="service">
-        <div class="center">
-            <div class="wrap">
-                <div class="service-item">
-                    <h3>Kundendienst</h3>
-                    <p>Unser Kundendienst ist 365 Tage im Jahr erreichbar</p>
-                </div>
-
-                <div class="service-item">
-                    <h3>Sicheres Bestellen</h3>
-                    <p>Bestellen Sie sicher und einfach</p>
-                </div>
-
-                <div class="service-item">
-                    <h3>Service & unsere Produkte</h3>
-                </div>
-            </div>
-
-            <div class="service-manager">
-                <img src="{{ asset('images/service-1.png') }}" alt="Manager">
-            </div>
-        </div>
-</section>
+{{-- Service --}}
+<x-service/>
+{{-- // Service --}}
 
 @endsection
