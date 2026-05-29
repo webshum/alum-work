@@ -51,6 +51,11 @@ class CategoryForm
                         ->columnSpanFull()
                         ->nullable(),
 
+                    RichEditor::make('content')
+                        ->label('Content')
+                        ->nullable()
+                        ->columnSpanFull(),
+
                     Toggle::make('is_active')
                         ->label('Active')
                         ->default(true)

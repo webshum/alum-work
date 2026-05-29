@@ -43,7 +43,15 @@
         font-size: clamp(32px, 8vw, 64px);
         font-family: "Akatab", sans-serif;
         line-height: 1.1;
-        color: #29aae1;
+        color: #fff;
+        span {color: var(--akcent);}
+    }
+
+    h1 span {
+        background: linear-gradient(to right, var(--akcent) 47%, white 47%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     h2 {font-size: 40px;}

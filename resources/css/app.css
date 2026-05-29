@@ -8,10 +8,10 @@
 @import './components/product/card.css';
 @import './components/service.css';
 
-@import './components/advantages.css';
 @import './components/page-product.css';
 
 @import './page/home.css';
+@import './page/categories.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -67,6 +67,11 @@ p + p {margin-top: 40px;}
 img {
     max-width: 100%;
     display: block;
+}
+
+h2.title {
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .center {

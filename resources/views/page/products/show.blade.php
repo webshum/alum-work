@@ -3,7 +3,7 @@
 @section('body-class', 'page-product')
 
 @section('content')
-     
+
     <section class="main-slider">
         <swiper-container>
             <swiper-slide>
@@ -16,14 +16,14 @@
                 </div>
             </swiper-slide>
         </swiper-container>
-    </section>    
+    </section>
 
     <section class="intro">
         <div class="center">
             <h2>Pure Qualität zum besten Preis</h2>
 
             <p>
-                Die neue Terrassenüberdachung AlumStandart ist eine äußerst präzise Entwicklung, made in Germany und ist statisch geprüft. Es überzeugt Sie durch hochwertige, langlebige Materialien, präzise durchdachte Verarbeitung und ein flächenbündiges Design in Kombination mit einem attraktiven Preis. Die neue Produktlinie AlumStandart punktet durch eine innen liegende Statik, die für eine durchgängige harmonische Dachoptik sorgt. 
+                Die neue Terrassenüberdachung AlumStandart ist eine äußerst präzise Entwicklung, made in Germany und ist statisch geprüft. Es überzeugt Sie durch hochwertige, langlebige Materialien, präzise durchdachte Verarbeitung und ein flächenbündiges Design in Kombination mit einem attraktiven Preis. Die neue Produktlinie AlumStandart punktet durch eine innen liegende Statik, die für eine durchgängige harmonische Dachoptik sorgt.
             </p>
 
             <p>
@@ -78,7 +78,7 @@
                             <div class="discount">25% Rabatt</div>
                         </div>
                         <div class="old-price">1.694,00 €</div>
-                    </div> 
+                    </div>
 
                     <div class="row">
                         <div class="inner">
@@ -135,7 +135,7 @@
                     <h3>Service & unsere Produkte</h3>
                 </div>
             </div>
-            
+
             <div class="service-manager">
                 <img src="{{ asset('images/service-1.png') }}" alt="Manager">
             </div>

@@ -8,7 +8,7 @@
 <a {{ $attributes }}>
     @if(!empty($thumbnails))
         <div class="image">
-            <img src="{{ Storage::url($thumbnails) }}" alt="">
+            <img src="{{ Storage::url($thumbnails) }}" loading="lazy" alt="Category">
         </div>
     @endif
 

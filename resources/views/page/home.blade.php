@@ -7,23 +7,10 @@
 
 {{-- Main Slider --}}
 @if(!empty($page))
-<section class="main-slider">
-    <swiper-container>
-        <swiper-slide>
-            <img src="{{ Storage::url($page->thumbnails) }}" alt="">
-
-            <div class="center">
-                <h1>ALUM<span class="!text-white">WORK</span></h1>
-
-                @if($page->meta_description)
-                    <div class="text mt-[40px] max-w-[745px]">
-                        <p>{{ $page->meta_description }}</p>
-                    </div>
-                @endif
-            </div>
-        </swiper-slide>
-    </swiper-container>
-</section>
+<x-main-slider
+    :thumbnails="$page->thumbnails"
+    :description="$page->meta_description"
+/>
 @endif
 {{-- // Main Slider --}}
 
@@ -39,7 +26,7 @@
     <div class="center">
         @foreach($categories as $category)
             <x-product.card
-                href="/products/{{ $category->slug }}"
+                href="{{ route('categories.show', $category->slug) }}"
                 :thumbnails="$category->thumbnails"
                 :title="$category->title"
             />
@@ -55,7 +42,7 @@
 
 {{-- Action --}}
 @if(!empty($actions))
-    <x-action :$actions/>
+    <x-action :$actions class="py-[95px]"/>
 @endif
 {{-- // Action --}}
 
@@ -138,9 +125,9 @@
 
             @foreach ($references as $reference)
             <swiper-slide>
-                <a href="{{ route('product', $reference->slug) }}" class="card">
+                <a href="{{ route('products.show', $reference->slug) }}" class="card">
                     <div class="image">
-                        <img src="{{ Storage::url($reference->thumbnails) }}" alt="">
+                        <img src="{{ Storage::url($reference->thumbnails) }}" alt="{{ $reference->title }}" loading="lazy">
                     </div>
 
                     <div class="descr">
