@@ -17,15 +17,15 @@ document.querySelector('.menu-toggle').addEventListener('click', e => {
 function acordeon(setting) {
     let acordeon = document.querySelectorAll(setting.clasName);
 
-        for (let i = 0; i < acordeon.length; i++) {
+    for (let i = 0; i < acordeon.length; i++) {
         let btn = acordeon[i].querySelectorAll('.acordeon-btn');
         let content = acordeon[i].querySelectorAll('.acordeon-content');
 
-        for(let i = 0; i < btn.length; i++) {
-            btn[i].onclick = function() {
-                if (btn[i].classList.contains('active')) {
-                    btn[i].classList.remove('active');
-                    content[i].style.height = 0 + 'px';
+        for (let j = 0; j < btn.length; j++) {
+            btn[j].onclick = function() {
+                if (btn[j].classList.contains('active')) {
+                    btn[j].classList.remove('active');
+                    content[j].style.height = 0 + 'px';
                     return;
                 }
                 if (setting.showOne) {
@@ -34,19 +34,30 @@ function acordeon(setting) {
                         btn[z].classList.remove('active');
                     }
                 }
+                btn[j].classList.add('active');
+                content[j].style.height = content[j].scrollHeight + 'px';
+            };
+        }
+    }
 
-                btn[i].classList.add('active');
-                let height = content[i].scrollHeight;
-                content[i].style.height = height + 'px';
-            }
-        };
+    if (setting.showMoreBtn) {
+        const showMoreBtn = document.querySelector(setting.showMoreBtn);
+        if (showMoreBtn) {
+            showMoreBtn.addEventListener('click', function() {
+                document.querySelectorAll('.acordeon-wrap.hidden').forEach(el => {
+                    el.classList.remove('hidden');
+                });
+                showMoreBtn.style.display = 'none';
+            });
+        }
     }
 }
 
 if (document.querySelector('.acordeon') != null) {
-    let acordeon1 = new acordeon({
+    acordeon({
         clasName: '.acordeon',
         showOne: true,
+        showMoreBtn: '.faq .button',
     });
 }
 
