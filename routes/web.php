@@ -8,6 +8,11 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+// Сторінка для верстки
+Route::get('/reference', function () {
+    return view('page.reference');
+})->name('reference');
+
 Route::controller(CategoryController::class)
     ->prefix('categories')
     ->name('categories.')
@@ -24,4 +29,5 @@ Route::controller(ProductController::class)
         Route::get('/{product:slug}', 'show')->name('show');
     });
 
+// Цей роут має бути останнім, бо він ловить все підряд
 Route::get('/{page:slug}', [PageController::class, 'index'])->name('page');

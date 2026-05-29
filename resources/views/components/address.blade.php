@@ -1,5 +1,5 @@
 @props(['visible' => ['phone', 'mail', 'map']])
-@php($class = 'flex items-center gap-[30px] hover:!text-[var(--akcent)]')
+@php($class = 'flex items-center gap-[30px] hover:!text-[#8FC0B4]')
 
 <address {{ $attributes }}>
     @if(in_array('phone', $visible))

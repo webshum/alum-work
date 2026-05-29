@@ -1,8 +1,14 @@
 import { createApp } from 'vue/dist/vue.esm-bundler';
 import { register } from 'swiper/element/bundle';
 import Home from './components/Home.vue';
+import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 register();
+
+Fancybox.bind('[data-fancybox="gallery"]', {
+  // Your custom options for a specific gallery
+});
 
 /*  HEADER
 ------------------------------------------------- */

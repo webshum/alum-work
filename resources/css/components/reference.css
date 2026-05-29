@@ -1,0 +1,77 @@
+.reference {
+  padding: 100px 0;
+}
+
+.reference .title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+
+.reference .gallery {
+  padding-top: 0;
+}
+
+.reference .gallery-categories {
+  margin-bottom: 5px;
+}
+
+.reference .gallery-categories ul {
+  align-items: center;
+  display: flex;
+  padding: 0 0 10px 0;
+}
+
+.reference .gallery-categories ul::-webkit-scrollbar {
+  height: 6px;
+}
+
+.reference .gallery-categories ul::-webkit-scrollbar-track {
+  background: #e5e5e5;
+}
+
+.reference .gallery-categories ul::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.reference .gallery-categories a {
+  white-space: nowrap;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 14px;
+  display: block;
+  position: relative;
+  color: #42403f;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.reference .gallery-categories a.active {
+  color: #2d8ff5;
+}
+
+.reference .gallery-categories a:hover {
+  color: #2d8ff5;
+}
+
+.reference .gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.reference .gallery .grid a {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  height: 350px;
+}
+
+.reference .gallery .grid a img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  
+  display: block;
+}
