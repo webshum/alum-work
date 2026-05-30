@@ -54,8 +54,8 @@
                 <div class="rating"></div>
 
                 <ul class="usp">
-                    <li>Abholbereit innerhalb von 2 Tagen</li>
-                    <li>Lieferung innerhalb von ca. 4-5 Wochen</li>
+                    <li><x-icons name="check" class="[40px] h-[26px] text-[#4DB4E8]" />Abholbereit innerhalb von 2 Tagen</li>
+                    <li><x-icons name="delivery" class="[40px] h-[35px] text-[#4DB4E8]" />Lieferung innerhalb von ca. 4-5 Wochen</li>
                 </ul>
 
                 <div class="price-box">
@@ -88,9 +88,9 @@
                 </div>
 
                 <ul class="trust">
-                    <li>Bestpreis-Garantie</li>
-                    <li>10 Jahre Produktgarantie</li>
-                    <li>Hergestellt in Deutschland</li>
+                    <li><x-icons name="quality" class="[45px] h-[45px] text-[#4DB4E8]" />Bestpreis-Garantie</li>
+                    <li><x-icons name="support" class="w-[40px] h-[41px] text-[#4DB4E8]" />10 Jahre Produktgarantie</li>
+                    <li><x-icons name="warranty" class="w-[40px] h-[51px] text-[#4DB4E8]" />Hergestellt in Deutschland</li>
                 </ul>
 
             </div>
